@@ -22,7 +22,7 @@ import java.util.Map;
 @TaskProperties
 public class GazeboBridgeTask extends AbstractTask {
 
-    @TaskParameter(name = "masterHost", value = "127.0.0.1")
+    @TaskParameter(name = "masterHost", value = "0.0.0.0")
     private String masterHost;
     @TaskParameter(name = "masterPort", value = "11345")
     private int masterPort;
@@ -120,7 +120,8 @@ public class GazeboBridgeTask extends AbstractTask {
             this.os = masterSocket.getOutputStream();
             asyncRun("readInitInfo");
         } catch (IOException e) {
-            System.err.println("StartMaster Error, Try to reconnect after 5 seconds...");
+            System.err.println("StartMaster Error, on host ["+ masterHost + "] and port [" + masterPort + "]. Try to reconnect after 5 seconds...");
+            e.printStackTrace();
             asyncRunLater("startMaster", 5000L);
         }
     }

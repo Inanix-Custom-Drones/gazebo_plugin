@@ -20,6 +20,12 @@
         </plugins>
     </build>
     <dependencies>
+		 <dependency>
+            <groupId>cn.autolabor.core</groupId>
+            <artifactId>autolabor_core</artifactId>
+            <version>1.0.0.5</version>
+        </dependency>
+        
         <dependency>
             <groupId>com.google.protobuf</groupId>
             <artifactId>protobuf-java</artifactId>
